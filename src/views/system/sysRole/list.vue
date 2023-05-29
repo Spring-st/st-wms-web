@@ -11,7 +11,7 @@
           </el-col>
         </el-row>
         <el-row style="display:flex">
-          <el-button type="primary" icon="el-icon-search" size="mini" :loading="loading" @click="fetchData()">搜索</el-button>
+          <el-button type="primary" icon="el-icon-search" size="mini" :loading="loading" @click="fetchData()">查询</el-button>
           <el-button icon="el-icon-refresh" size="mini" @click="resetData">重置</el-button>
         </el-row>
       </el-form>
@@ -47,7 +47,7 @@
         </template>
       </el-table-column>
     </el-table>
-<!-- 工具条 -->
+    <!-- 工具条 -->
     <div class="tools-div">
         <el-button type="success" icon="el-icon-plus" size="mini" :disabled="$hasBP('bnt.sysRole.add')  === false" @click="add">添 加</el-button>
         <el-button class="btn-add" size="mini" @click="batchRemove()" >批量删除</el-button>
@@ -82,7 +82,7 @@
 
 <script>
 //引入定义接口js文件
-import api from '@/api/system/sysRole'
+import api from '@/api/system/sysRole';
 
 export default {
     //vue代码结构
@@ -192,7 +192,7 @@ export default {
             this.page = current
             api.getPageList(this.page,this.limit,this.searchObj)
                 .then(response => {
-                    this.list = response.data.records
+                    this.list  = response.data.records
                     this.total = response.data.total
                 })
         },
